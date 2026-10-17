@@ -259,15 +259,37 @@ If setup fails:
 
 ## Scripts
 
-- `npm run run`
-- `npm run scan`
-- `npm run health`
-- `npm run config`
-- `npm run history`
-- `npm run electron`
-- `npm test`
-- `npm run test:storybook` (requires Playwright Chromium; install with `npx playwright install chromium`)
-- `npm run test:all`
+Run these commands from a source installation's project directory.
+
+| Command | Purpose |
+| --- | --- |
+| `npm run build` | Type-check the application, tests, and stories, then compile Electron/CLI sources and bundle the renderer into `dist/`. |
+| `npm start` | Build and run CLI triage; dry-run by default. |
+| `npm run dry-run` | Build and run a dry-run scan limited to 20 messages. |
+| `npm run cli` | Build and run CLI triage; equivalent to `npm run run`. |
+| `npm run run` | Build and run triage; dry-run by default. |
+| `npm run scan` | Build and run the `scan` alias of triage. |
+| `npm run move -- --uid <uid> --destination <trash\|archive>` | Build and move one inbox message to Trash or Archive. This changes the mailbox immediately; only run after explicitly confirming the individual action. |
+| `npm run health` | Build and report configuration-presence checks as JSON; does not test connectivity. |
+| `npm run config` | Build and display runtime configuration as JSON with secrets masked. |
+| `npm run history` | Build and display recent local decision-history entries as JSON. |
+| `npm run electron` | Build and launch the desktop GUI from source. |
+| `npm run dist:win` | Build and create the Windows x64 NSIS installer in `release/`. |
+| `npm test` | Build, then run the Jest and Node test suites. |
+| `npm run test:jest` | Run renderer component and application-context Jest tests. |
+| `npm run test:node` | Run CLI-process, worker integration, and worker unit tests; requires a current build. |
+| `npm run test:storybook` | Run Storybook interaction tests in headless Chromium. |
+| `npm run test:all` | Build and run all Jest, Node, and Storybook tests. |
+| `npm run storybook` | Start the local Storybook UI at `http://127.0.0.1:6006`. |
+| `npm run build-storybook` | Build the static Storybook site into `storybook-static/`. |
+
+Install the Chromium browser before running Storybook interaction tests:
+
+```powershell
+npx playwright install chromium
+```
+
+Pass CLI options after `--`, for example `npm run run -- --limit 5`.
 
 ## License
 
