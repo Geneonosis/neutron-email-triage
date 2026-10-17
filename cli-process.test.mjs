@@ -31,7 +31,7 @@ for (const executable of [process.execPath, electronPath]) {
             PROTON_MAIL_BRIDGE_USERNAME: 'test',
             PROTON_MAIL_BRIDGE_PASSWORD: 'test',
             TYPESAFE_AI_API_KEY: 'test-key',
-            PROTON_TRIAGE_LOG: logPath,
+            NEUTRON_EMAIL_TRIAGE_LOG: logPath,
           },
         });
         assert.equal(result.code, 0, JSON.stringify(result));

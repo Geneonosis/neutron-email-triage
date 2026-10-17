@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * proton-triage worker
+ * neutron-email-triage worker
  *
  * Classifies recent Proton Mail inbox messages with the Jev decision model
  * (TypeSafe System One API) and, ONLY when explicitly enabled with a
@@ -86,7 +86,9 @@ function confidenceScore(result: {
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 // Tests override this so they never touch the real decision log.
-const DEFAULT_DECISIONS_LOG = env.PROTON_TRIAGE_LOG ?? join(SCRIPT_DIR, '..', 'decisions.jsonl');
+const DEFAULT_DECISIONS_LOG = env.NEUTRON_EMAIL_TRIAGE_LOG
+  ?? env.PROTON_TRIAGE_LOG
+  ?? join(SCRIPT_DIR, '..', 'decisions.jsonl');
 const MODEL = 'jev-1.14.0'; // pinned: thresholds are calibrated against this exact model
 const TYPESAFE_ENDPOINT = 'https://api.typesafe.ai/v1/systemone';
 const TRASH_FOLDER = 'Trash';
@@ -482,7 +484,7 @@ export async function main(): Promise<void> {
   const decisionsLog = DEFAULT_DECISIONS_LOG;
 
   const mode = args.execute ? 'EXECUTE (moves to Trash!)' : 'DRY RUN (moves nothing)';
-  out.log(`proton-triage  model=${MODEL}  mode=${mode}  limit=${args.limit === Infinity ? 'ALL' : args.limit}  offset=${args.offset}`);
+  out.log(`neutron-email-triage  model=${MODEL}  mode=${mode}  limit=${args.limit === Infinity ? 'ALL' : args.limit}  offset=${args.offset}`);
   if (args.execute) out.log(`  trash threshold: P(trash) >= ${args.trashThreshold}`);
   if (args.includeBody) out.log('  including body snippet (leaves Proton encryption boundary)');
 

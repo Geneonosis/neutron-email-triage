@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <header>
-        <h1 className="title">Proton Triage</h1>
+        <h1 className="title">Neutron Email Triage</h1>
         <div className="subtitle">CLI contract-backed Electron UI</div>
       </header>
       <main>

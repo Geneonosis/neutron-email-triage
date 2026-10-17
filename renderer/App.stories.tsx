@@ -83,7 +83,7 @@ export const Dashboard: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await canvas.findByText('Ready');
-    await expect(canvas.getByRole('heading', { name: 'Proton Triage' })).toBeInTheDocument();
+    await expect(canvas.getByRole('heading', { name: 'Neutron Email Triage' })).toBeInTheDocument();
     await expect(canvas.getByText('Classification model')).toBeInTheDocument();
     await userEvent.click(canvas.getByRole('button', { name: 'Run now' }));
     await canvas.findByText('App story result');

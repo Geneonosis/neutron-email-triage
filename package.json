@@ -1,7 +1,7 @@
 {
-  "name": "proton-triage",
+  "name": "neutron-email-triage",
   "version": "0.1.0",
-  "description": "Classify Proton Mail inbox messages with the Jev decision model; trash only high-confidence junk",
+  "description": "Jev-first email classification for Proton Mail via Proton Mail Bridge.",
   "type": "module",
   "main": "dist/electron-main.js",
   "scripts": {
@@ -58,8 +58,8 @@
     "vitest": "^4.1.12"
   },
   "build": {
-    "appId": "com.protontriage.desktop",
-    "productName": "Proton Triage",
+    "appId": "com.neutronemailtriage.desktop",
+    "productName": "Neutron Email Triage",
     "directories": {
       "output": "release"
     },
@@ -83,7 +83,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Proton Triage"
+      "shortcutName": "Neutron Email Triage"
     },
     "publish": null
   }

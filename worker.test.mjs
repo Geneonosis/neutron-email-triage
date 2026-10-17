@@ -1,5 +1,5 @@
 /**
- * proton-triage unit tests
+ * neutron-email-triage unit tests
  *
  * Run with:  node --test
  *
@@ -147,7 +147,7 @@ test('shouldMoveToTrash: null/undefined entry does not move', () => {
 // ------------------------------------------------------------ log I/O
 
 test('loadLoggedEntries: parses entries and keys by messageId', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'proton-triage-test-'));
+  const dir = mkdtempSync(join(tmpdir(), 'neutron-email-triage-test-'));
   try {
     const logPath = join(dir, 'decisions.jsonl');
     writeFileSync(logPath, [
@@ -166,7 +166,7 @@ test('loadLoggedEntries: parses entries and keys by messageId', () => {
 });
 
 test('loadLoggedEntries: last line wins for duplicate messageId', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'proton-triage-test-'));
+  const dir = mkdtempSync(join(tmpdir(), 'neutron-email-triage-test-'));
   try {
     const logPath = join(dir, 'decisions.jsonl');
     writeFileSync(logPath, [
@@ -186,7 +186,7 @@ test('loadLoggedEntries: missing file returns empty map', () => {
 });
 
 test('logDecision: writes valid JSONL that round-trips', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'proton-triage-test-'));
+  const dir = mkdtempSync(join(tmpdir(), 'neutron-email-triage-test-'));
   try {
     const logPath = join(dir, 'decisions.jsonl');
     logDecision(logPath, { ts: '2026-10-14T00:00:00Z', messageId: 'z@x', choice: 'trash', probabilities: { trash: 0.97 } });

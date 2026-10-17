@@ -17,7 +17,7 @@ const decisionsLogPath = app.isPackaged
 function runWorker(args: string[]) {
   if (!decisionsLogPath) return runCli(args);
   return runCli(args, {
-    environment: { ...process.env, PROTON_TRIAGE_LOG: decisionsLogPath },
+    environment: { ...process.env, NEUTRON_EMAIL_TRIAGE_LOG: decisionsLogPath },
   });
 }
 

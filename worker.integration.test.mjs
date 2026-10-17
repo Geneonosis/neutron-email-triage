@@ -66,7 +66,7 @@ function runWorker(args, { port, logPath }) {
 }
 
 test('execute mode moves stored high-confidence trash and nothing else', async () => {
-  const dir = mkdtempSync(join(tmpdir(), 'proton-triage-int-'));
+  const dir = mkdtempSync(join(tmpdir(), 'neutron-email-triage-int-'));
   const logPath = join(dir, 'decisions.jsonl');
   try {
     // pre-log all three messages: one keeper, one clear junk, one borderline
@@ -114,7 +114,7 @@ test('execute mode moves stored high-confidence trash and nothing else', async (
 });
 
 test('execute mode leaves borderline review decisions alone', async () => {
-  const dir = mkdtempSync(join(tmpdir(), 'proton-triage-int-'));
+  const dir = mkdtempSync(join(tmpdir(), 'neutron-email-triage-int-'));
   const logPath = join(dir, 'decisions.jsonl');
   try {
     writeFileSync(logPath, JSON.stringify({
@@ -142,7 +142,7 @@ test('execute mode leaves borderline review decisions alone', async () => {
 });
 
 test('dry run against the fake bridge classifies nothing new and moves nothing', async () => {
-  const dir = mkdtempSync(join(tmpdir(), 'proton-triage-int-'));
+  const dir = mkdtempSync(join(tmpdir(), 'neutron-email-triage-int-'));
   const logPath = join(dir, 'decisions.jsonl');
   try {
     // empty log: all messages are new, but classifyEmail would hit the real

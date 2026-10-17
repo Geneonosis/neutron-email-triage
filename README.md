@@ -1,8 +1,12 @@
-# proton-triage
+# neutron-email-triage
 
-React + TypeScript + Electron application and CLI for Proton Mail triage using
-Jev. The React renderer is bundled with Vite; Electron and CLI TypeScript are
-compiled into `dist/`.
+Jev-first email classification for Proton Mail via Proton Mail Bridge. This
+independent React + TypeScript + Electron application also provides a CLI. The
+React renderer is bundled with Vite; Electron and CLI TypeScript are compiled
+into `dist/`.
+
+Neutron Email Triage is an independent, unofficial project and is not
+affiliated with or endorsed by Proton AG or TypeSafe AI.
 
 ## CLI contract (source of truth)
 
@@ -42,7 +46,7 @@ npm run dist:win
 ```
 
 The NSIS installer is written to `release/` as
-`Proton Triage-<version>-Setup.exe`. It installs per-user by default and offers
+`Neutron Email Triage-<version>-Setup.exe`. It installs per-user by default and offers
 a custom installation-directory option. The packaged app stores decision
 history in the user's application data directory rather than inside the
 read-only application bundle. Proton Mail Bridge and TypeSafe API credentials
@@ -71,7 +75,7 @@ npm run dist:win
 ```
 
 The NSIS installer is written to `release/` as
-`Proton Triage-<version>-Setup.exe`. It installs per-user by default and offers
+`Neutron Email Triage-<version>-Setup.exe`. It installs per-user by default and offers
 a custom installation-directory option. The packaged app stores decision
 history in the user's application data directory rather than inside the
 read-only application bundle. Proton Mail Bridge and TypeSafe API credentials
@@ -129,3 +133,7 @@ npm run run
 - `npm test`
 - `npm run test:storybook` (requires Playwright Chromium; install with `npx playwright install chromium`)
 - `npm run test:all`
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
