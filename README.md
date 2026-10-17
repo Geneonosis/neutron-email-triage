@@ -11,9 +11,31 @@ affiliated with or endorsed by Proton AG or TypeSafe AI.
 **First-time setup:** see [Setup and configuration](#setup-and-configuration)
 before launching a scan, including when using the Windows installer.
 
+## Platform support
+
+The standalone desktop build currently supports **Windows x64 only**. Its
+installer includes the Electron runtime, so using the installed GUI does not
+require a separate Node.js installation.
+
+The Windows installer does **not** register a CLI command or add the application
+to your `PATH`. To use the documented CLI, download or clone the source, install
+Node.js 20 or newer, run `npm ci` in the project directory, and configure the
+environment variables described below.
+
+The source-based CLI can be invoked from PowerShell, Command Prompt, Bash, or
+another shell that can run Node.js and npm. The `npm run` commands are the same,
+but environment-variable syntax differs between shells; the examples in this
+README use PowerShell. Run the commands from the project directory, not by
+passing them to the installed GUI executable.
+
+macOS and Linux standalone builds are not currently provided or officially
+supported. Running from source on those platforms is not a supported-platform
+guarantee and also requires a working local Proton Mail Bridge installation.
+
 ## CLI contract (source of truth)
 
-All GUI actions are backed by these CLI commands:
+All GUI actions are backed by these CLI commands, available from a source
+installation:
 
 - `npm run run -- [flags]` — triage run (dry-run by default)
 - `npm run scan -- [flags]` — alias of run
