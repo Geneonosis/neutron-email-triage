@@ -13,9 +13,15 @@ before launching a scan, including when using the Windows installer.
 
 ## Platform support
 
-The standalone desktop build currently supports **Windows x64 only**. Its
-installer includes the Electron runtime, so using the installed GUI does not
-require a separate Node.js installation.
+| Platform | Current standalone GUI | Future GUI support | Source-based CLI |
+| --- | --- | --- | --- |
+| Windows x64 | Supported | Continue supporting | Supported with Node.js/npm |
+| macOS | Not currently supported | Planned | Not officially supported yet |
+| Linux | Not currently supported | Planned | Not officially supported yet |
+
+Standalone GUI support for **macOS and Linux is planned**, with no release date
+announced. The Windows installer includes the Electron runtime, so using the
+installed GUI does not require a separate Node.js installation.
 
 The Windows installer does **not** register a CLI command or add the application
 to your `PATH`. To use the documented CLI, download or clone the source, install
@@ -28,9 +34,8 @@ but environment-variable syntax differs between shells; the examples in this
 README use PowerShell. Run the commands from the project directory, not by
 passing them to the installed GUI executable.
 
-macOS and Linux standalone builds are not currently provided or officially
-supported. Running from source on those platforms is not a supported-platform
-guarantee and also requires a working local Proton Mail Bridge installation.
+Running from source on macOS or Linux is not a supported-platform guarantee and
+also requires a working local Proton Mail Bridge installation.
 
 ## CLI contract (source of truth)
 
