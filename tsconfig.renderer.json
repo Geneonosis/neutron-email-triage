@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "types": ["node", "vite/client"]
+  },
+  "include": ["renderer/App.tsx", "renderer/main.tsx", "renderer/context/**/*.tsx", "renderer/components/**/*.tsx", "types.ts"],
+  "exclude": ["dist", "node_modules", "renderer/**/*.test.tsx", "renderer/**/*.stories.tsx"]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "proton-triage",
+  "version": "0.1.0",
+  "description": "Classify Proton Mail inbox messages with the Jev decision model; trash only high-confidence junk",
+  "type": "module",
+  "main": "dist/electron-main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.renderer.json && tsc -p tsconfig.jest.json && tsc -p tsconfig.storybook.json && vite build",
+    "start": "npm run build && node dist/worker.js run",
+    "dry-run": "npm run build && node dist/worker.js run --limit 20",
+    "test": "npm run build && npm run test:jest && npm run test:node",
+    "test:all": "npm test && npm run test:storybook",
+    "test:jest": "jest --config jest.config.cjs --runInBand",
+    "test:node": "node --test cli-process.test.mjs worker.integration.test.mjs worker.test.mjs",
+    "test:storybook": "vitest run --project=storybook",
+    "storybook": "storybook dev --host 127.0.0.1 --port 6006",
+    "build-storybook": "storybook build",
+    "cli": "npm run build && node dist/worker.js run",
+    "run": "npm run build && node dist/worker.js run",
+    "scan": "npm run build && node dist/worker.js scan",
+    "move": "npm run build && node dist/worker.js move",
+    "health": "npm run build && node dist/worker.js health --json",
+    "config": "npm run build && node dist/worker.js config --json",
+    "history": "npm run build && node dist/worker.js history --json",
+    "electron": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win nsis --x64"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "imapflow": "^1.0.0",
+    "lucide-react": "^1.58.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-vitest": "^10.6.2",
+    "@storybook/react-vite": "^10.6.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/browser-playwright": "^4.1.12",
+    "electron": "^44.7.2",
+    "electron-builder": "^26.15.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "playwright": "^1.58.2",
+    "storybook": "^10.6.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.4",
+    "vitest": "^4.1.12"
+  },
+  "build": {
+    "appId": "com.protontriage.desktop",
+    "productName": "Proton Triage",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "${productName}-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Proton Triage"
+    },
+    "publish": null
+  }
+}

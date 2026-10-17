@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+/dist/
+/storybook-static/
+/release/
+
+# Local Electron data and decision history
+/.electron-data/
+/decisions.jsonl
+
+# Local run output and logs
+/execute-run.txt
+*.log
+npm-debug.log*
+
+# IDE and editor files
+.idea/
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
